@@ -1,0 +1,194 @@
+<template>
+    <div t-name="ScheduleView" class="o_calendar_container">
+        <t t-set="regs_ce" t-value="widget.items"/>
+        <t t-set="regs_ho" t-value="widget.items_ho"/>
+        <t t-set="regs_em" t-value="widget.items_em"/>
+        <t t-set="regs_qx" t-value="widget.items_qx"/>
+        <t t-set="days" t-value="widget.period_days"/>
+        <t t-set="employees" t-value="widget.employees"/>
+        <div class="o_calendar_view">
+            <div class="o_calendar_buttons"/>
+            <div class="o_calendar_widget">
+                <div class="gantt">
+                    <div class="gantt-tasklist">
+                        <table class="table table-bordered" cellspacing="0" cellpadding="0">
+                            <tbody>
+                                <tr align="left">
+                                    <th>
+                                    <span>Consultorio</span>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>.</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="column">
+                                            <span style="white-space: nowrap; margin-left: 0px;">PEDIATRÍA</span><br/>
+                                            <span style="white-space: nowrap; margin-left: 0px;">MAÑANA(07:00 - 13:00)</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="column">
+                                            <span style="white-space: nowrap; margin-left: 0px;">GINECOLOGÍA</span><br/>
+                                            <span style="white-space: nowrap; margin-left: 0px;">TARDE(13:00 - 07:00)</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="gantt-chart">
+                        <table class="table table-bordered" cellspacing="0" cellpadding="0" style="table-layout: fixed;">
+                            <tbody>
+                                <tr align="left">
+                                    <th class="gantt-week-header" align="center" colspan="31">JUNIO 2018</th>
+                                </tr>
+                                <tr align="left">
+                                    <th class="gantt-day-header" align="center">1</th>
+                                    <th class="gantt-day-header" align="center">2</th>
+                                    <th class="gantt-day-header" align="center">3</th>
+                                    <th class="gantt-day-header" align="center">4</th>
+                                    <th class="gantt-day-header" align="center">5</th>
+                                    <th class="gantt-day-header" align="center">6</th>
+                                    <th class="gantt-day-header" align="center">7</th>
+                                    <th class="gantt-day-header" align="center">8</th>
+                                    <th class="gantt-day-header" align="center">9</th>
+                                    <th class="gantt-day-header" align="center">10</th>
+                                    <th class="gantt-day-header" align="center">11</th>
+                                    <th class="gantt-day-header" align="center">12</th>
+                                    <th class="gantt-day-header" align="center">13</th>
+                                    <th class="gantt-day-header" align="center">14</th>
+                                    <th class="gantt-day-header" align="center">15</th>
+                                    <th class="gantt-day-header" align="center">16</th>
+                                    <th class="gantt-day-header" align="center">17</th>
+                                    <th class="gantt-day-header" align="center">18</th>
+                                    <th class="gantt-day-header" align="center">19</th>
+                                    <th class="gantt-day-header" align="center">20</th>
+                                    <th class="gantt-day-header" align="center">21</th>
+                                    <th class="gantt-day-header" align="center">22</th>
+                                    <th class="gantt-day-header" align="center">23</th>
+                                    <th class="gantt-day-header" align="center">24</th>
+                                    <th class="gantt-day-header" align="center">25</th>
+                                    <th class="gantt-day-header" align="center">26</th>
+                                    <th class="gantt-day-header" align="center">27</th>
+                                    <th class="gantt-day-header" align="center">28</th>
+                                    <th class="gantt-day-header" align="center">29</th>
+                                    <th class="gantt-day-header" align="center">30</th>
+                                    <th class="gantt-day-header" align="center">31</th>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>X</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td colspan="21">
+                                        <div>
+                                            <span style="white-space: nowrap; margin-left: 0px;">X</span><br/>
+                                            <span style="white-space: nowrap; margin-left: 0px;">X</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="31">
+                                        <div>
+                                            <span style="white-space: nowrap; margin-left: 0px;">X</span><br/>
+                                            <span style="white-space: nowrap; margin-left: 0px;">X</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <t t-name="ScheduleView.sidebar">
+        <div class="o_calendar_sidebar">
+            <div class="o_calendar_mini"/>
+        </div>
+    </t>
+    <t t-name="ScheduleView.sidebar.filters">
+        <div class="o_calendar_filter">
+            <div class="o_calendar_contacts"/>
+        </div>
+    </t>
+
+    <t t-name="ScheduleView.sidebar.contacts">
+        <div t-foreach="filters" class="o_calendar_contact">
+            <t t-if="filters_value.value"><!-- don't display if no value given (or undefined) -->
+                <div class="o_checkbox">
+                    <input type="checkbox" name="selection" t-att-value="filters_value.value" t-att-checked="(filters_value.is_checked ? true : undefined)"/><span/>
+                </div>
+                <t t-if="filters_value.value == -1">
+                    <span><i class="fa fa-users fa-fw o_cal_avatar"/></span>
+                </t>
+                <t t-if="(filters_value.value != -1) &amp;&amp; filters_value.avatar_model">
+                    <img t-attf-src="/web/image/#{filters_value.avatar_model}/#{filters_value.value}/image_small" class="o_cal_avatar"/>
+                </t>
+                <span t-attf-class="color_filter o_underline_color_#{filters_value.color}"><t t-esc="filters_value.label"/></span>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="ScheduleView.buttons">
+        <t t-set="employees" t-value="widget.employees"/>
+        <t t-set="periods" t-value="widget.periods"/>
+        <div class="o_calendar_buttons">
+            <div class="row form-inline">
+                <div class="form-group">
+                    <label for="period" style="float:left;padding: 6px 12px 2px 12px;">Períodos:</label>
+                    <select id="period" style="width:auto;" class="form-control selectWidth">
+                        <option class=""></option>
+                        <t t-foreach="periods" t-as="period">
+                            <option class=""><t t-esc="period.name"/></option>
+                        </t>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="employee" style="float:left;padding: 6px 12px 2px 12px;">Profesional:</label>
+                    <select id="employee" style="width:auto;" class="form-control selectWidth">
+                        <option class=""></option>
+                        <t t-foreach="employees" t-as="employee">
+                            <option class=""><t t-esc="employee.name"/></option>
+                        </t>
+                    </select>
+                </div>
+                <!-- <div class="btn-group">
+                    <button class="o_calendar_button_prev btn btn-sm btn-primary"><span class="fa fa-arrow-left"/></button>
+                    <button class="o_calendar_button_today btn btn-sm btn-primary">Today</button>
+                    <button class="o_calendar_button_next btn btn-sm btn-primary"><span class="fa fa-arrow-right"/></button>
+                </div> -->
+                <div class="btn-group">
+                    <button class="o_calendar_button_today btn btn-sm btn-primary">Guardar</button>
+                </div>
+                <div class="btn-group">
+                    <button t-if="widget.options.action_buttons !== false &amp;&amp; widget.is_action_enabled('create') &amp;&amp; ((widget.field_widget &amp;&amp; (widget.field_widget.open_popup_add)) || (!widget.field_widget))" type="button" class="o_calendar_button_new o_highlight btn btn-sm btn-primary"><t t-esc="widget.options.create_text || _t('Create')"/></button>
+                </div>
+            </div> 
+        </div>
+    </t>
+
+    <div t-name="ScheduleView.quick_create" class="o_calendar_quick_create">
+        <div class="form-group">
+            <label for='name' class='control-label'>Summary XXX:</label>
+            <input type='text' name='name'/>
+            <label for='shift' class='control-label'>Turno:</label>
+            <input type='text' name='shift'/>
+            <label for='employee' class='control-label'>Profesional:</label>
+            <input type='text' name='employee'/>
+            <label for='surgery' class='control-label'>Consultorio:</label>
+            <input type='text' name='surgery'/>
+        </div>
+    </div>
+</template>

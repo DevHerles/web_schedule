@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="web_schedule assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/web_schedule/static/src/css/web_schedule.css"/>
+            <link rel="stylesheet" href="/web_schedule/static/src/less/web_schedule.less"/>
+            <link rel="stylesheet" href="/web_schedule/static/lib/fullcalendar/css/fullcalendar.css"/>
+
+            <script type="text/javascript" src="/web_schedule/static/lib/fullcalendar/js/fullcalendar.js"></script>
+            <script type="text/javascript" src="/web_schedule/static/src/js/web_schedule_widgets.js"></script>
+            <script type="text/javascript" src="/web_schedule/static/src/js/web_schedule.js"></script>
+        </xpath>
+    </template>
+</odoo>
